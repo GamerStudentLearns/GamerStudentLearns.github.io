@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — Game Designer</title>
+
+<!--
+  HOW TO EDIT THIS FILE
+  ======================
+  This is one file: HTML structure + CSS styling, all in one place.
+  You don't need to know how to code to customize it — just find the
+  text in "quotes" or between tags and swap it for your own.
+
+  Things to change, in order:
+  1. Line ~15: the <title> tag — put your name
+  2. The HERO section: your name, tagline, links
+  3. The ABOUT section: your bio + facts
+  4. The WORK section: swap in your real projects (copy/paste a
+     whole .project block to add more, delete blocks you don't need)
+  5. The SKILLS section: your own tools/skills
+  6. The CONTACT section: your email + links
+
+  To add a project image: put the image file in the same folder as
+  this index.html, then add <img src="yourimage.png" alt="..."> right
+  after the <div class="project-head"> line in that project's block.
+
+  Every project card has a "status stamp" (SHIPPED / PROTOTYPE / IN
+  PROGRESS / GAME JAM) — change the word AND the class name
+  (stamp--shipped / stamp--prototype / stamp--jam) to change its color.
+-->
+
+<style>
+  :root {
+    --paper: #ece5d3;
+    --paper-light: #f4efe1;
+    --ink: #26313c;
+    --ink-soft: #52606d;
+    --line: #cfc4a3;
+    --amber: #d8952f;
+    --stamp-red: #b64a2e;
+    --stamp-green: #4c6b4f;
+    --stamp-blue: #395a72;
+    --font-display: 'Fraunces', serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: -1px -1px;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; }
+
+  ::selection { background: var(--amber); color: var(--paper-light); }
+
+  /* ---------- layout shell ---------- */
+  .sheet {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  section {
+    padding: 88px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .kicker {
+    font-family: var(--font-body);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    margin: 0 0 10px 0;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 38px);
+    margin: 0 0 36px 0;
+  }
+
+  /* ---------- top nav ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--paper-light);
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav .sheet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  nav .nav-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+
+  nav a:hover, nav a:focus-visible {
+    color: var(--ink);
+    border-bottom-color: var(--amber);
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    padding: 110px 0 90px 0;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(44px, 8vw, 76px);
+    line-height: 1.02;
+    margin: 0 0 20px 0;
+  }
+
+  .hero p.role {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 0 34px 0;
+  }
+
+  .hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 24px;
+  }
+
+  .hero-links a {
+    text-decoration: none;
+    font-size: 15px;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .hero-links a:hover, .hero-links a:focus-visible {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+  }
+
+  /* ---------- about ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+  }
+
+  .about-grid p {
+    margin: 0 0 16px 0;
+    max-width: 58ch;
+  }
+
+  .facts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .facts li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .facts li span:first-child {
+    color: var(--ink-soft);
+  }
+
+  /* ---------- projects ---------- */
+  .project {
+    position: relative;
+    background: var(--paper-light);
+    border: 1px solid var(--line);
+    padding: 32px 32px 28px 32px;
+    margin-bottom: 36px;
+    box-shadow: 6px 6px 0 var(--line);
+  }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 6px;
+  }
+
+  .project h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 26px;
+    margin: 0;
+  }
+
+  .stamp {
+    flex: 0 0 auto;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 5px 12px;
+    border: 2px solid currentColor;
+    border-radius: 3px;
+    transform: rotate(4deg);
+    white-space: nowrap;
+  }
+
+  .stamp--shipped { color: var(--stamp-green); }
+  .stamp--prototype { color: var(--stamp-blue); }
+  .stamp--jam { color: var(--stamp-red); }
+
+  .project .meta {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0 0 16px 0;
+  }
+
+  .project p.desc {
+    margin: 0 0 18px 0;
+    max-width: 62ch;
+  }
+
+  .project ul.highlights {
+    margin: 0 0 20px 0;
+    padding-left: 20px;
+  }
+
+  .project ul.highlights li {
+    margin-bottom: 6px;
+  }
+
+  .project-link {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .project-link:hover, .project-link:focus-visible {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+  }
+
+  /* ---------- skills ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .skills-grid h4 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 14px 0;
+  }
+
+  .skills-grid ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .skills-grid li {
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 15px;
+  }
+
+  /* ---------- contact ---------- */
+  .contact h2 { margin-bottom: 18px; }
+
+  .contact p.lead {
+    font-size: 19px;
+    max-width: 50ch;
+    margin: 0 0 30px 0;
+    color: var(--ink-soft);
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+  }
+
+  .contact-links a {
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .contact-links a:hover, .contact-links a:focus-visible {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+  }
+
+  footer {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-soft);
+    padding: 30px 0 50px 0;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 720px) {
+    nav ul { gap: 16px; }
+    nav ul li:nth-child(2) { display: none; } /* hides one nav item on very small screens if needed */
+    .about-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    section { padding: 64px 0; }
+    .project { padding: 24px 20px; }
+    .project-head { flex-direction: column; }
+    .stamp { transform: rotate(2deg); }
+  }
+
+  @media (max-width: 480px) {
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 3px;
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav>
+  <div class="sheet">
+    <a class="nav-name" href="#top">Your Name</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="top" class="sheet hero">
+  <h1>Your Name</h1>
+  <p class="role">Game designer focused on systems and level design — I like building mechanics that teach themselves. Currently studying [Your Major] at [Your School].</p>
+  <div class="hero-links">
+    <a href="mailto:you@email.com">you@email.com</a>
+    <a href="https://yourname.itch.io" target="_blank" rel="noopener">itch.io</a>
+    <a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+  </div>
+</div>
+
+<section id="about">
+  <div class="sheet">
+    <p class="kicker">About</p>
+    <h2>Who I am</h2>
+    <div class="about-grid">
+      <div>
+        <p>Write two or three sentences about yourself here. What kind of games do you like designing? What drew you to game design? Keep it conversational — this is the part recruiters read to get a sense of you as a person, not just a resume line.</p>
+        <p>Add a second paragraph if you want — maybe what you're working on right now, or what kind of role you're looking for (level design, systems design, narrative, UX, etc).</p>
+      </div>
+      <ul class="facts">
+        <li><span>Based in</span><span>Your City</span></li>
+        <li><span>Studying</span><span>Your Major, Year</span></li>
+        <li><span>Engines</span><span>Unity, Godot</span></li>
+        <li><span>Looking for</span><span>Internships 2027</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="sheet">
+    <p class="kicker">Selected work</p>
+    <h2>Projects</h2>
+
+    <!-- PROJECT 1 — copy this whole <div class="project">...</div> block to add more -->
+    <div class="project">
+      <div class="project-head">
+        <h3>Project Title One</h3>
+        <span class="stamp stamp--shipped">Shipped</span>
+      </div>
+      <p class="meta">Solo project · Unity · 3 months</p>
+      <p class="desc">One or two sentences on what the game is and what the player does. Keep it plain — describe the game, don't sell it.</p>
+      <ul class="highlights">
+        <li>What you specifically designed or built — a system, a level, a mechanic</li>
+        <li>A problem you ran into and how you solved it</li>
+        <li>What playtesting taught you, if relevant</li>
+      </ul>
+      <a class="project-link" href="https://yourname.itch.io/project-one" target="_blank" rel="noopener">Play it on itch.io →</a>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project">
+      <div class="project-head">
+        <h3>Project Title Two</h3>
+        <span class="stamp stamp--jam">Game Jam</span>
+      </div>
+      <p class="meta">Team of 4 · Godot · 48-hour jam</p>
+      <p class="desc">One or two sentences on what the game is and what the player does.</p>
+      <ul class="highlights">
+        <li>Your specific role on the team</li>
+        <li>One design decision you're proud of</li>
+      </ul>
+      <a class="project-link" href="https://yourname.itch.io/project-two" target="_blank" rel="noopener">Play it on itch.io →</a>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="project">
+      <div class="project-head">
+        <h3>Project Title Three</h3>
+        <span class="stamp stamp--prototype">Prototype</span>
+      </div>
+      <p class="meta">Solo project · Unreal · Ongoing</p>
+      <p class="desc">One or two sentences on what the game is and what the player does.</p>
+      <ul class="highlights">
+        <li>What this prototype is testing or exploring</li>
+        <li>What you'd add if you kept going</li>
+      </ul>
+      <a class="project-link" href="https://github.com/yourname/project-three" target="_blank" rel="noopener">View writeup →</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sheet">
+    <p class="kicker">Toolkit</p>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div>
+        <h4>Design</h4>
+        <ul>
+          <li>Level design</li>
+          <li>Systems design</li>
+          <li>Playtesting</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li>Unity</li>
+          <li>Godot</li>
+          <li>Figma</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Other</h4>
+        <ul>
+          <li>C#</li>
+          <li>GDScript</li>
+          <li>Pixel art</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="sheet">
+    <p class="kicker">Get in touch</p>
+    <h2>Let's talk</h2>
+    <p class="lead">Open to internships and collaborations. Feel free to reach out.</p>
+    <div class="contact-links">
+      <a href="mailto:you@email.com">Email</a>
+      <a href="https://yourname.itch.io" target="_blank" rel="noopener">itch.io</a>
+      <a href="https://github.com/yourname" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/yourname" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built by hand, not by template.
+</footer>
+
+</body>
+</html>
