@@ -181,11 +181,67 @@ nav a.active { color: var(--cyan); border-bottom-color: var(--cyan); }
 .project p.desc { margin: 0 0 18px 0; max-width: 62ch; color: var(--ink); }
 .project ul.highlights { margin: 0 0 22px 0; padding-left: 20px; color: var(--ink); }
 .project ul.highlights li { margin-bottom: 7px; }
+.project-links { display: flex; flex-wrap: wrap; gap: 10px 26px; }
 .project-link {
   display: inline-block; text-decoration: none; font-family: var(--font-mono); font-size: 13.5px;
   padding-bottom: 3px; border-bottom: 1px solid var(--line);
 }
 .project-link:hover, .project-link:focus-visible { color: var(--cyan); border-bottom-color: var(--cyan); }
+
+/* ---------- case study pages ---------- */
+.back-link {
+  display: inline-block; font-family: var(--font-mono); font-size: 13.5px;
+  text-decoration: none; color: var(--ink-soft); margin-bottom: 18px;
+}
+.back-link:hover, .back-link:focus-visible { color: var(--cyan); }
+
+.case-banner {
+  position: relative; width: 100%; aspect-ratio: 21 / 9;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  background-color: var(--bg-panel);
+  background-image:
+    var(--shot, none),
+    repeating-linear-gradient(45deg, rgba(87,217,255,0.05) 0px, rgba(87,217,255,0.05) 1px, transparent 1px, transparent 14px),
+    radial-gradient(ellipse at 50% 40%, rgba(87,217,255,0.10), transparent 70%);
+  border: 1px solid var(--line);
+  margin-bottom: 46px;
+}
+.case-banner .stamp { position: absolute; top: 16px; right: 16px; }
+
+.case-meta {
+  font-family: var(--font-mono); font-size: 13px; color: var(--ink-soft);
+  margin: 0 0 8px 0;
+}
+
+.case-body { max-width: 68ch; }
+.case-body p { margin: 0 0 18px 0; color: var(--ink); }
+.case-body .case-section { margin-bottom: 48px; }
+.case-body .case-section:last-child { margin-bottom: 0; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 8px;
+}
+.gallery-shot {
+  aspect-ratio: 4 / 3;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  background-color: var(--bg-panel);
+  background-image:
+    var(--shot, none),
+    repeating-linear-gradient(45deg, rgba(87,217,255,0.05) 0px, rgba(87,217,255,0.05) 1px, transparent 1px, transparent 14px),
+    radial-gradient(ellipse at 50% 40%, rgba(87,217,255,0.10), transparent 70%);
+  border: 1px solid var(--line);
+}
+
+.case-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line);
+  font-family: var(--font-mono); font-size: 13.5px;
+}
+.case-nav a { text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 3px; }
+.case-nav a:hover, .case-nav a:focus-visible { color: var(--cyan); border-bottom-color: var(--cyan); }
 
 /* ---------- skills ---------- */
 .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
