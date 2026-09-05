@@ -4,359 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Isaac Nash — Game Designer</title>
-
-<!--
-  HOW TO EDIT THIS FILE
-  ======================
-  Your real content is already in here.
-
-  ADDING A SCREENSHOT TO A PROJECT
-  ---------------------------------
-  Each project has a line that looks like this:
-
-    <div class="project-media" style="background-image:url('');">
-
-  1. Put your image file (e.g. momentum-shot.png) in the SAME FOLDER
-     as this index.html, right alongside it.
-  2. Type the filename between the quotes, so it looks like:
-
-    <div class="project-media" style="background-image:url('momentum-shot.png');">
-
-  That's it — no image tags to fuss with. If you leave the quotes
-  empty, it just shows a plain placeholder pattern instead, so
-  nothing breaks if you don't have a screenshot yet.
-  You can use any image size, but wide screenshots (roughly 16:9,
-  like 1280x720) will look best since the box is a wide rectangle.
-
-  OTHER SECTIONS TO EDIT
-  -----------------------
-  - HERO section: name, tagline, links
-  - ABOUT section: bio + facts list
-  - WORK section: copy a whole <div class="project frame">...</div>
-    block to add a new project, delete one you don't want
-  - SKILLS section: your tools
-  - CONTACT section: your links
-
-  Status badge colors: change the class on <span class="stamp ...">
-  stamp--shipped (cyan), stamp--jam (amber), stamp--prototype (violet)
--->
-
-<style>
-  :root {
-    --bg: #0a0e16;
-    --bg-panel: #10161f;
-    --ink: #dbe6f0;
-    --ink-soft: #7f93a8;
-    --line: #223142;
-    --cyan: #57d9ff;
-    --amber: #ffb454;
-    --violet: #b98cff;
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'IBM Plex Sans', sans-serif;
-    --font-mono: 'IBM Plex Mono', monospace;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
-  }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background:
-      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(87,217,255,0.10), transparent 60%),
-      repeating-linear-gradient(180deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px),
-      var(--bg);
-    color: var(--ink);
-    font-family: var(--font-body);
-    font-size: 17px;
-    line-height: 1.65;
-  }
-
-  a { color: inherit; }
-  ::selection { background: var(--cyan); color: var(--bg); }
-
-  .sheet { max-width: 880px; margin: 0 auto; padding: 0 28px; }
-
-  section { padding: 90px 0; border-bottom: 1px solid var(--line); }
-  section:last-of-type { border-bottom: none; }
-
-  /* ---------- section header: schematic divider ---------- */
-  .section-head {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 40px;
-  }
-  .section-head .node {
-    width: 9px; height: 9px;
-    border-radius: 50%;
-    background: var(--cyan);
-    box-shadow: 0 0 8px rgba(87,217,255,0.8);
-    flex: 0 0 auto;
-  }
-  .section-head .rule {
-    height: 1px;
-    width: 32px;
-    background: var(--line);
-    flex: 0 0 auto;
-  }
-  .section-head h2 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: clamp(24px, 3.4vw, 32px);
-    margin: 0;
-    letter-spacing: 0.01em;
-  }
-
-  /* ---------- bracket frame ---------- */
-  .frame { position: relative; }
-  .frame::before, .frame::after,
-  .frame .corner-tr, .frame .corner-bl {
-    content: "";
-    position: absolute;
-    width: 14px; height: 14px;
-    border-color: var(--cyan);
-    opacity: 0.55;
-    transition: opacity 0.2s ease;
-    z-index: 2;
-  }
-  .frame::before { top: -1px; left: -1px; border-top: 2px solid; border-left: 2px solid; }
-  .frame::after { bottom: -1px; right: -1px; border-bottom: 2px solid; border-right: 2px solid; }
-  .frame .corner-tr { top: -1px; right: -1px; border-top: 2px solid; border-right: 2px solid; }
-  .frame .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid; border-left: 2px solid; }
-  .frame:hover::before, .frame:hover::after,
-  .frame:hover .corner-tr, .frame:hover .corner-bl { opacity: 1; }
-
-  /* ---------- nav ---------- */
-  nav {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(10,14,22,0.85);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  nav .sheet { display: flex; align-items: center; justify-content: space-between; padding: 18px 28px; }
-  nav .nav-name { font-family: var(--font-display); font-weight: 600; font-size: 17px; text-decoration: none; letter-spacing: 0.02em; }
-  nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
-  nav a { text-decoration: none; font-size: 14px; color: var(--ink-soft); font-family: var(--font-mono); }
-  nav a:hover, nav a:focus-visible { color: var(--cyan); }
-
-  /* ---------- hero ---------- */
-  .hero { position: relative; padding: 130px 0 100px 0; overflow: hidden; }
-
-  .hero-rings {
-    position: absolute;
-    top: 50%; left: 50%;
-    width: 640px; height: 640px;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    opacity: 0.55;
-    pointer-events: none;
-  }
-
-  .hero-content { position: relative; z-index: 1; }
-
-  .status {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    font-family: var(--font-mono);
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    border: 1px solid var(--line);
-    padding: 6px 14px;
-    border-radius: 999px;
-    margin-bottom: 30px;
-  }
-  .status .dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--cyan);
-    box-shadow: 0 0 6px rgba(87,217,255,0.9);
-    animation: pulse 2.2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.35; }
-  }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: clamp(46px, 8vw, 78px);
-    line-height: 1.0;
-    margin: 0 0 22px 0;
-  }
-
-  .hero p.role {
-    font-size: 19px;
-    color: var(--ink-soft);
-    max-width: 48ch;
-    margin: 0 0 36px 0;
-  }
-
-  .hero-links { display: flex; flex-wrap: wrap; gap: 10px 28px; }
-  .hero-links a {
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-size: 14px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid var(--line);
-  }
-  .hero-links a:hover, .hero-links a:focus-visible { color: var(--cyan); border-bottom-color: var(--cyan); }
-
-  /* ---------- about ---------- */
-  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; }
-  .about-grid p { margin: 0 0 16px 0; max-width: 58ch; color: var(--ink); }
-
-  .facts { list-style: none; margin: 0; padding: 0; font-size: 14px; }
-  .facts li {
-    display: flex; justify-content: space-between; gap: 12px;
-    padding: 11px 0;
-    border-bottom: 1px solid var(--line);
-    font-family: var(--font-mono);
-  }
-  .facts li span:first-child { color: var(--ink-soft); }
-  .facts li span:last-child { color: var(--ink); }
-
-  /* ---------- projects ---------- */
-  .project {
-    background: var(--bg-panel);
-    border: 1px solid var(--line);
-    margin-bottom: 36px;
-    overflow: hidden;
-  }
-
-  .project-media {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: var(--bg-panel);
-    background-image:
-      var(--shot, none),
-      repeating-linear-gradient(45deg, rgba(87,217,255,0.05) 0px, rgba(87,217,255,0.05) 1px, transparent 1px, transparent 14px),
-      radial-gradient(ellipse at 50% 40%, rgba(87,217,255,0.10), transparent 70%);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .stamp {
-    position: absolute;
-    top: 14px; right: 14px;
-    font-family: var(--font-mono);
-    font-weight: 500;
-    font-size: 11px;
-    letter-spacing: 0.05em;
-    padding: 5px 11px;
-    background: rgba(10,14,22,0.72);
-    backdrop-filter: blur(4px);
-    border: 1px solid currentColor;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .stamp::before {
-    content: "";
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: currentColor;
-  }
-  .stamp--shipped { color: var(--cyan); }
-  .stamp--jam { color: var(--amber); }
-  .stamp--prototype { color: var(--violet); }
-
-  .project-body { padding: 28px 32px 30px 32px; }
-
-  .project h3 { font-family: var(--font-display); font-weight: 600; font-size: 25px; margin: 0 0 6px 0; }
-  .project .meta { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); margin: 0 0 18px 0; }
-  .project p.desc { margin: 0 0 18px 0; max-width: 62ch; color: var(--ink); }
-
-  .project ul.highlights { margin: 0 0 22px 0; padding-left: 20px; color: var(--ink); }
-  .project ul.highlights li { margin-bottom: 7px; }
-
-  .project-link {
-    display: inline-block;
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-size: 13.5px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid var(--line);
-  }
-  .project-link:hover, .project-link:focus-visible { color: var(--cyan); border-bottom-color: var(--cyan); }
-
-  /* ---------- skills ---------- */
-  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-  .skills-grid h4 {
-    font-family: var(--font-mono);
-    font-weight: 500;
-    font-size: 12.5px;
-    letter-spacing: 0.04em;
-    color: var(--ink-soft);
-    margin: 0 0 16px 0;
-  }
-  .skills-grid ul { list-style: none; margin: 0; padding: 0; }
-  .skills-grid li { padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
-
-  /* ---------- contact ---------- */
-  .contact p.lead { font-size: 19px; max-width: 50ch; margin: 0 0 32px 0; color: var(--ink-soft); }
-  .contact-links { display: flex; flex-wrap: wrap; gap: 10px 30px; }
-  .contact-links a {
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-size: 15px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid var(--line);
-  }
-  .contact-links a:hover, .contact-links a:focus-visible { color: var(--cyan); border-bottom-color: var(--cyan); }
-
-  footer {
-    text-align: center;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--ink-soft);
-    padding: 34px 0 54px 0;
-  }
-
-  /* ---------- responsive ---------- */
-  @media (max-width: 720px) {
-    nav ul { gap: 18px; }
-    .about-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr 1fr; }
-    section { padding: 66px 0; }
-    .project-body { padding: 24px 22px; }
-    .hero-rings { width: 460px; height: 460px; }
-  }
-  @media (max-width: 480px) {
-    .skills-grid { grid-template-columns: 1fr; }
-  }
-
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
-</style>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!--
+  THIS IS NOW A MULTI-PAGE SITE
+  ==============================
+  4 files work together: index.html (this one), about.html, work.html,
+  contact.html — all sharing style.css for consistent look.
+  Keep all of them, plus style.css, in the SAME FOLDER when uploading.
+
+  ADD YOUR PROFILE PHOTO
+  ------------------------
+  Below, find this line:
+    <div class="avatar" style="--photo:url('');"></div>
+  Put your photo's filename between the quotes (e.g. profile.jpg),
+  then upload that image file into the same folder as this page.
+  A square-ish photo works best since it gets cropped into a circle.
+-->
 </head>
 
 <body>
 
 <nav>
   <div class="sheet">
-    <a class="nav-name" href="#top">ISAAC NASH</a>
+    <a class="nav-name" href="index.html">ISAAC NASH</a>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<div id="top" class="sheet hero">
+<div class="sheet hero">
   <svg class="hero-rings" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="320" cy="320" r="300" fill="none" stroke="#57d9ff" stroke-opacity="0.18" stroke-width="1"/>
     <circle cx="320" cy="320" r="250" fill="none" stroke="#57d9ff" stroke-opacity="0.28" stroke-width="1" stroke-dasharray="2 10"/>
@@ -370,6 +54,7 @@
   </svg>
 
   <div class="hero-content">
+    <div class="avatar" style="--photo:url('');"></div>
     <span class="status"><span class="dot"></span>Open to internships — 2027</span>
     <h1>Isaac Nash</h1>
     <p class="role">I'm a Game Designer based in the UK, focusing on environment design and gameplay mechanics. Currently studying Games and Animation at New College, Swindon.</p>
@@ -381,125 +66,17 @@
   </div>
 </div>
 
-<section id="about">
-  <div class="sheet">
-    <div class="section-head"><span class="node"></span><span class="rule"></span><h2>Who I am</h2></div>
-    <div class="about-grid">
-      <div>
-        <p>From a very young age, i've known that I wanted to be a video game designer. I think I first decided to really pursue it when i had started playing Final Fantasy XV, taking in the stunning environments, the smooth combat mechanics, and the beautiful car.</p>
-        <p>Over the past year and a bit, I have been working at my game design skills at new college, with projects that have allowed me to strech my knowledge and learn as much as I can to help me one day achieve my goal of working for Square Enix.</p>
-      </div>
-      <ul class="facts">
-        <li><span>Based in</span><span>Swindon</span></li>
-        <li><span>Studying</span><span>Game design, Year 2</span></li>
-        <li><span>Engines</span><span>Unity</span></li>
-        <li><span>Looking for</span><span>Internships 2027</span></li>
-      </ul>
-    </div>
+<section>
+  <div class="sheet home-teaser">
+    <p>From Final Fantasy XV to building my own platformers — I design environments and mechanics with the goal of one day working somewhere like Square Enix.</p>
+    <a class="see-more" href="about.html">Read more about me →</a>
   </div>
 </section>
 
-<section id="work">
-  <div class="sheet">
-    <div class="section-head"><span class="node"></span><span class="rule"></span><h2>Projects</h2></div>
-
-    <!-- PROJECT 1 — to add a screenshot, put the filename inside the url('') below -->
-    <div class="project frame">
-      <span class="corner-tr"></span><span class="corner-bl"></span>
-      <div class="project-media" style="--shot:url('MomentumCover.png');">
-        <span class="stamp stamp--shipped">Complete</span>
-      </div>
-      <div class="project-body">
-        <h3>Momentum</h3>
-        <p class="meta">Solo project · Unity · 11 months ago</p>
-        <p class="desc">The first ever game that I worked on.</p>
-        <ul class="highlights">
-          <li>I built a 3D platformer rage game from scratch, with jumoing, wall running, grappling and even secret areas</li>
-          <li>Back then I was working with a mediocre laptop, so I had to make sure my optimisiation skills were off the charts.</li>
-          <li>Playtesting this taught me that I'm never going to get it right first try, because people will always be able to find bugs.</li>
-        </ul>
-        <a class="project-link" href="https://doctor-videogames.itch.io/momentum" target="_blank" rel="noopener">Play it on itch.io</a>
-      </div>
-    </div>
-
-    <!-- PROJECT 2 -->
-    <div class="project frame">
-      <span class="corner-tr"></span><span class="corner-bl"></span>
-      <div class="project-media" style="--shot:url('TPP.png');">
-        <span class="stamp stamp--jam">Game Jam</span>
-      </div>
-      <div class="project-body">
-        <h3>A Peasant's Path.</h3>
-        <p class="meta">Team of 4 · Unity · Three week game jam</p>
-        <p class="desc">In this game, you play as a knight trying to escape a castle full of puzzles.</p>
-        <ul class="highlights">
-          <li>When making this game, I oversaw lots of the goings on, coded and designed half the levels.</li>
-          <li>I'm proud of the cutscene at the end, as it's my first time making a cutscene.</li>
-        </ul>
-        <a class="project-link" href="https://thelonelydevs.itch.io/the-peasants-path" target="_blank" rel="noopener">Play it on itch.io</a>
-      </div>
-    </div>
-
-    <!-- PROJECT 3 -->
-    <div class="project frame">
-      <span class="corner-tr"></span><span class="corner-bl"></span>
-      <div class="project-media" style="--shot:url('MomentumBanner.jpg');">
-        <span class="stamp stamp--prototype">Prototype</span>
-      </div>
-      <div class="project-body">
-        <h3>Momentum Bound</h3>
-        <p class="meta">Solo project · Unity · Ongoing</p>
-        <p class="desc">Partway through my first year, some of the people on my course decided that our games would have interwoven lore. As such Momentum Bound was made and recieves updates to this day.</p>
-        <ul class="highlights">
-          <li>This is a roguelike inspired by the binding of Isaac, which brings together most of the lore of 'Craig' up to the point this game released</li>
-          <li>If I keep going, i'll add more lore, more bosses and a lot more polish to make sure the game looks and plays well.</li>
-        </ul>
-        <a class="project-link" href="https://doctor-videogames.itch.io/momentum-bound" target="_blank" rel="noopener">Play it on itch.io</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="skills">
-  <div class="sheet">
-    <div class="section-head"><span class="node"></span><span class="rule"></span><h2>Skills</h2></div>
-    <div class="skills-grid">
-      <div>
-        <h4>DESIGN</h4>
-        <ul>
-          <li>Level design</li>
-          <li>Systems design</li>
-          <li>Playtesting</li>
-        </ul>
-      </div>
-      <div>
-        <h4>TOOLS</h4>
-        <ul>
-          <li>Unity</li>
-        </ul>
-      </div>
-      <div>
-        <h4>OTHER</h4>
-        <ul>
-          <li>C#</li>
-          <li>Pixel art</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <div class="sheet">
-    <div class="section-head"><span class="node"></span><span class="rule"></span><h2>Let's talk</h2></div>
-    <p class="lead">Open to internships and collaborations. Feel free to reach out.</p>
-    <div class="contact-links">
-      <a href="mailto:I.D.Nash120809@gmail.com">Email</a>
-      <a href="https://doctor-videogames.itch.io/" target="_blank" rel="noopener">itch.io</a>
-      <a href="https://github.com/GamerStudentLearns" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/isaac-nash-7a5517433/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
+<section>
+  <div class="sheet home-teaser">
+    <p>Three projects so far: a solo 3D platformer, a four-person game jam entry, and an ongoing roguelike prototype.</p>
+    <a class="see-more" href="work.html">See my work →</a>
   </div>
 </section>
 
