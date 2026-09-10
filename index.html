@@ -6,23 +6,17 @@
 <title>Isaac Nash — Game Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
 <!--
-  THIS IS NOW A MULTI-PAGE SITE
-  ==============================
-  4 files work together: index.html (this one), about.html, work.html,
-  contact.html — all sharing style.css for consistent look.
-  Keep all of them, plus style.css, in the SAME FOLDER when uploading.
-
   ADD YOUR PROFILE PHOTO
   ------------------------
   Below, find this line:
-    <div class="avatar" style="--photo:url('');"></div>
-  Put your photo's filename between the quotes (e.g. profile.jpg),
+    <div class="hero-photo" style="--photo:url('');"></div>
+  Put your photo's filename between the quotes (e.g. Me.JPEG),
   then upload that image file into the same folder as this page.
-  A square-ish photo works best since it gets cropped into a circle.
+  A portrait-ish photo works best — it's cropped to a 4:5 box.
 -->
 </head>
 
@@ -30,7 +24,7 @@
 
 <nav>
   <div class="sheet">
-    <a class="nav-name" href="index.html">ISAAC NASH</a>
+    <a class="nav-name" href="index.html">Isaac Nash</a>
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -41,47 +35,37 @@
 </nav>
 
 <div class="sheet hero">
-  <svg class="hero-rings" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="320" cy="320" r="300" fill="none" stroke="#57d9ff" stroke-opacity="0.18" stroke-width="1"/>
-    <circle cx="320" cy="320" r="250" fill="none" stroke="#57d9ff" stroke-opacity="0.28" stroke-width="1" stroke-dasharray="2 10"/>
-    <circle cx="320" cy="320" r="205" fill="none" stroke="#57d9ff" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="60 14"/>
-    <circle cx="320" cy="320" r="165" fill="none" stroke="#ffb454" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="1 8"/>
-    <circle cx="320" cy="320" r="120" fill="none" stroke="#57d9ff" stroke-opacity="0.5" stroke-width="1"/>
-    <circle cx="320" cy="20" r="3" fill="#57d9ff" fill-opacity="0.7"/>
-    <circle cx="320" cy="620" r="3" fill="#57d9ff" fill-opacity="0.7"/>
-    <circle cx="115" cy="205" r="2.5" fill="#ffb454" fill-opacity="0.7"/>
-    <circle cx="525" cy="435" r="2.5" fill="#ffb454" fill-opacity="0.7"/>
-  </svg>
-
-  <div class="hero-content">
-    <div class="avatar" style="--photo:url('Me.JPEG');"></div>
-    <span class="status"><span class="dot"></span>Open to internships — 2027</span>
-    <h1>Isaac Nash</h1>
-    <p class="role">I'm a Game Designer based in the UK, focusing on environment design and gameplay mechanics. Currently studying Games and Animation at New College, Swindon.</p>
-    <div class="hero-links">
-      <a href="mailto:I.D.Nash120809@gmail.com">I.D.Nash120809@gmail.com</a>
-      <a href="https://doctor-videogames.itch.io/" target="_blank" rel="noopener">itch.io</a>
-      <a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <span class="status"><span class="dot"></span>Open to internships, 2027</span>
+      <h1>Isaac Nash</h1>
+      <p class="role">I'm a game designer based in the UK, focusing on level design and movement-driven gameplay. Currently studying Games and Animation at New College, Swindon.</p>
+      <div class="hero-links">
+        <a href="mailto:I.D.Nash120809@gmail.com">I.D.Nash120809@gmail.com</a>
+        <a href="https://doctor-videogames.itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      </div>
     </div>
+    <div class="hero-photo" style="--photo:url('Me.JPEG');"></div>
   </div>
 </div>
 
 <section>
   <div class="sheet home-teaser">
-    <p>From Final Fantasy XV to building my own platformers — I design environments and mechanics with the goal of one day working somewhere like Square Enix.</p>
-    <a class="see-more" href="about.html">Read more about me →</a>
+    <p>From Final Fantasy XV's environments to building my own platformers, I design levels and mechanics with the goal of one day working somewhere like Square Enix.</p>
+    <a class="see-more" href="about.html">More about me →</a>
   </div>
 </section>
 
 <section>
   <div class="sheet home-teaser">
-    <p>Just a lad with a passion for designing wonderful games.</p>
+    <p>Three Unity projects so far, from a solo 3D platformer to a four-person game jam build.</p>
     <a class="see-more" href="work.html">See my work →</a>
   </div>
 </section>
 
 <footer>
-Handcrafted with love
+  Built by Isaac Nash
 </footer>
 
 </body>
