@@ -19,6 +19,7 @@
   --rust: #a94b2c;
 
   --grid: rgba(35, 64, 126, 0.035);
+  --nav-bg: rgba(250, 249, 244, 0.92);
 
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'Inter', -apple-system, sans-serif;
@@ -37,6 +38,7 @@
   --blue-tint: rgba(127, 160, 242, 0.14);
   --rust: #e28a68;
   --grid: rgba(127, 160, 242, 0.05);
+  --nav-bg: rgba(21, 22, 28, 0.92);
 
   color-scheme: dark;
 }
@@ -83,8 +85,9 @@ section:last-of-type, .page-section:last-of-type { border-bottom: none; }
 /* ---------- nav ---------- */
 nav {
   position: sticky; top: 0; z-index: 10;
-  background: rgba(250,249,244,0.92);
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--line);
+  transition: background-color 0.15s ease;
 }
 nav .sheet { display: flex; align-items: baseline; justify-content: space-between; padding: 20px 28px; }
 nav .nav-name {
