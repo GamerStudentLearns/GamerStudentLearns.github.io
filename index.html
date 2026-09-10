@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isaac Nash — Game Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<script src="theme.js?v=2"></script>
+
+<!--
+  ADD YOUR PROFILE PHOTO
+  ------------------------
+  Below, find this line:
+    <div class="hero-photo" style="--photo:url('');"></div>
+  Put your photo's filename between the quotes (e.g. Me.JPEG),
+  then upload that image file into the same folder as this page.
+  A portrait-ish photo works best — it's cropped to a 4:5 box.
+-->
+</head>
+
+<body>
+
+<nav>
+  <div class="sheet">
+    <a class="nav-name" href="index.html">Isaac Nash</a>
+    <div class="nav-right">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="sheet hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <span class="status"><span class="dot"></span>Open to internships, 2027</span>
+      <h1>Isaac Nash</h1>
+      <p class="role">I'm a game designer based in the UK, focusing on level design and movement-driven gameplay. Currently studying Games and Animation at New College, Swindon.</p>
+      <div class="hero-links">
+        <a href="mailto:I.D.Nash120809@gmail.com">I.D.Nash120809@gmail.com</a>
+        <a href="https://doctor-videogames.itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      </div>
+    </div>
+    <div class="hero-photo" style="--photo:url('Me.JPEG');"></div>
+  </div>
+</div>
+
+<section>
+  <div class="sheet home-teaser">
+    <p>From Final Fantasy XV's environments to building my own platformers, I design levels and mechanics with the goal of one day working somewhere like Square Enix.</p>
+    <a class="see-more" href="about.html">More about me →</a>
+  </div>
+</section>
+
+<section>
+  <div class="sheet">
+    <div class="section-head"><h2>A couple of things I've built</h2></div>
+    <div class="featured-grid">
+      <div class="featured-card">
+        <div class="project-media" style="--shot:url('MomentumCover.png');">
+          <span class="stamp stamp--shipped">Complete</span>
+        </div>
+        <h3>Momentum</h3>
+        <p>A 3D platformer built from scratch — jumping, wall running, grappling, and levels that punish every mistake.</p>
+        <a class="featured-link" href="project-momentum.html">Read the write-up</a>
+      </div>
+      <div class="featured-card">
+        <div class="project-media" style="--shot:url('MomentumBanner.jpg');">
+          <span class="stamp stamp--prototype">Prototype</span>
+        </div>
+        <h3>Momentum Bound</h3>
+        <p>An ongoing roguelike inspired by The Binding of Isaac, tying together lore from across my course's games.</p>
+        <a class="featured-link" href="project-momentum-bound.html">Read the write-up</a>
+      </div>
+    </div>
+    <p style="margin-top: 28px;"><a class="see-more" href="work.html">See all projects →</a></p>
+  </div>
+</section>
+
+<footer>
+  Built by Isaac Nash
+</footer>
+
+</body>
+</html>
